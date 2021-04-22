@@ -42,7 +42,7 @@
 }
 
 /* always visible on mobile */
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 500px) {
   .remove-item {opacity: 1;}
 }
 

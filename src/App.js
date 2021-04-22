@@ -1,22 +1,33 @@
 import './assets/App.css';
 import moon from './assets/images/icon-moon.svg';
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NewItem from './NewItem';
 import TodoItem from './TodoItem';
 import ControlPanel from './ControlPanel';
 
 function App() {
-  const [todoList, setTodoList] = useState([
-    {id: Math.random() * 1000, name: 'item1', complete: false},
-    {id: Math.random() * 1000, name: 'item2', complete: false}
-  ]);
+  // const [todoList, setTodoList] = useState([
+  //   {id: Math.random() * 1000, name: 'item1', complete: false},
+  //   {id: Math.random() * 1000, name: 'item2', complete: false}
+  // ]);
+
+  const [todoList, setTodoList] = useState(
+    JSON.parse(localStorage.getItem('list')) || []
+  );
 
   const [listType, setListType] = useState('all');
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(todoList));
+  }, [todoList]);
+
 
 
   function handleNewItem(item) {
     setTodoList(todoList => [...todoList, {id: Math.random() * 1000, name: item, complete: false}]);
+
+    localStorage.setItem('list', JSON.stringify(todoList));
   }
 
   function completeItem(id) {
