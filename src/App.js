@@ -20,7 +20,6 @@ function App() {
   }
 
   function completeItem(id) {
-
     setTodoList(todoList =>
       todoList.map(item => {
         if (item.id === id) {
@@ -30,6 +29,10 @@ function App() {
         return item;
       })
     );
+  }
+
+  function handleListChange(listName) {
+    setListType(listName)
   }
 
 
@@ -53,6 +56,8 @@ function App() {
 
           <ControlPanel
             itemsLeft={todoList.filter(item => item.complete === false).length}
+            listType={listType}
+            handleListChange={handleListChange}
           />
         </div>
 

@@ -21,6 +21,23 @@
   padding: 0 5px;
 }
 
+.control-btn.active {
+  color: hsl(220, 98%, 61%);
+}
+
+/* no hover on mobile */
+@media only screen and (min-width: 500px) {
+  .control-btn:hover {
+    color: hsl(235, 19%, 35%);
+    cursor: pointer;
+  }
+
+  .control-btn.active:hover {
+    cursor: default;
+    color: hsl(220, 98%, 61%);
+  }
+}
+
 
 /* MOBILE */
 @media only screen and (max-width: 600px) {
