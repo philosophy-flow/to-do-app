@@ -1,0 +1,56 @@
+.TodoItem {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid hsl(236, 33%, 92%);
+  word-wrap: break-word;
+}
+
+.TodoItem:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.TodoItem:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: none;
+}
+
+.content {
+  font-size: 1rem;
+  color: hsl(235, 19%, 35%);
+  word-wrap: break-word;
+  width: 80%;
+}
+
+.content.complete {
+  text-decoration: line-through;
+  color: hsl(234, 39%, 85%);
+}
+
+
+/* BUTTON */
+.cross-item {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: #fff;
+  border: 1px solid hsl(234, 39%, 85%);
+  outline: none;
+  cursor: pointer;
+}
+
+.cross-item.active {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  color: white;
+  border: none;
+}
+
+/* hover for non-mobile only */
+@media only screen and (min-width: 500px) {
+  .cross-item:hover {border: 2px solid green;}
+  .cross-item.active:hover {border: none;}
+}
