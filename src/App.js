@@ -31,6 +31,13 @@ function App() {
     );
   }
 
+  function deleteItem(id) {
+    setTodoList(todoList =>
+      todoList.filter(item => item.id !== id));
+  }
+
+
+
   function handleListChange(listName) {
     setListType(listName)
   }
@@ -39,19 +46,19 @@ function App() {
     switch (type) {
       case 'all':
         return (todoList.map(item =>
-          <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+          <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
         ));
 
         case 'active':
           const activeItems = todoList.filter(item => !item.complete)
           return (activeItems.map(item =>
-            <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
           ));
 
         case 'complete':
           const completedItems = todoList.filter(item => item.complete)
           return (completedItems.map(item =>
-            <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
           ));
       default:
         break;

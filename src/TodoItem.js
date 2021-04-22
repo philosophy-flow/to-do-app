@@ -1,7 +1,7 @@
 import './assets/TodoItem.css';
 import React from 'react';
 
-const TodoItem = ({id, name, complete, completeItem}) => {
+const TodoItem = ({id, name, complete, completeItem, deleteItem}) => {
   return (
     <li className="TodoItem">
       <button
@@ -13,7 +13,7 @@ const TodoItem = ({id, name, complete, completeItem}) => {
       </button>
       <p className={`content ${complete && 'complete'}`}>{name}</p>
 
-      <button className="remove-item">
+      <button className="remove-item" onClick={() => deleteItem(id)}>
         <i className="fas fa-trash-alt fa-2x"></i>
       </button>
     </li>
