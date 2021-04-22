@@ -4,12 +4,15 @@ import moon from './assets/images/icon-moon.svg';
 import React, {useState} from 'react';
 import NewItem from './NewItem';
 import TodoItem from './TodoItem';
+import ControlPanel from './ControlPanel';
 
 function App() {
   const [todoList, setTodoList] = useState([
     {id: Math.random() * 1000, name: 'item1', complete: false},
     {id: Math.random() * 1000, name: 'item2', complete: false}
   ]);
+
+  const [listType, setListType] = useState('all');
 
 
   function handleNewItem(item) {
@@ -39,13 +42,20 @@ function App() {
 
         <NewItem handleNewItem={handleNewItem} />
 
-        <ul className="TodoList">
-          {
-            todoList.map(item => (
-              <TodoItem key={item.id} {...item} completeItem={completeItem}/>
-            ))
-          }
-        </ul>
+        <div className="list-container">
+          <ul className="TodoList">
+            {
+              todoList.map(item => (
+                <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+              ))
+            }
+          </ul>
+
+          <ControlPanel
+            itemsLeft={todoList.filter(item => item.complete === false).length}
+          />
+        </div>
+
       </main>
     </div>
   );

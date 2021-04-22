@@ -1,0 +1,44 @@
+.ControlPanel {
+  font-size: .75rem;
+  color: hsl(234, 11%, 52%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.control-btn {
+  background-color: white;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: hsl(234, 11%, 52%);
+  padding: 0 5px;
+}
+
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  .ControlPanel {
+    position: relative;
+  }
+
+  .type-selector-container {
+    position: absolute;
+    top: 75px;
+    width: 100%;
+    margin-left: -20px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  }
+
+}

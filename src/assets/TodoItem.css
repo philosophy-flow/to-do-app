@@ -12,12 +12,6 @@
   border-top-right-radius: 5px;
 }
 
-.TodoItem:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom: none;
-}
-
 .content {
   font-size: 1rem;
   color: hsl(235, 19%, 35%);
