@@ -35,6 +35,29 @@ function App() {
     setListType(listName)
   }
 
+  const renderedList = (type) => {
+    switch (type) {
+      case 'all':
+        return (todoList.map(item =>
+          <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+        ));
+
+        case 'active':
+          const activeItems = todoList.filter(item => !item.complete)
+          return (activeItems.map(item =>
+            <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+          ));
+
+        case 'complete':
+          const completedItems = todoList.filter(item => item.complete)
+          return (completedItems.map(item =>
+            <TodoItem key={item.id} {...item} completeItem={completeItem}/>
+          ));
+      default:
+        break;
+    }
+  }
+
 
   return (
     <div className="App">
@@ -47,11 +70,7 @@ function App() {
 
         <div className="list-container">
           <ul className="TodoList">
-            {
-              todoList.map(item => (
-                <TodoItem key={item.id} {...item} completeItem={completeItem}/>
-              ))
-            }
+            {renderedList(listType)}
           </ul>
 
           <ControlPanel
