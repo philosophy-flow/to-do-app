@@ -1,19 +1,17 @@
 import './assets/TodoItem.css';
-import React, {useState} from 'react';
+import React from 'react';
 
-const TodoItem = ({item}) => {
-  const [complete, setComplete] = useState(false);
-
+const TodoItem = ({id, name, complete, completeItem}) => {
   return (
     <li className="TodoItem">
       <button
         type="button"
         className={`cross-item ${complete && 'active'}`}
-        onClick={() => setComplete(!complete)}
+        onClick={() => completeItem(id) }
       >
-        {complete && <i class="fas fa-check"></i>}
+        {complete && <i className="fas fa-check"></i>}
       </button>
-      <p className={`content ${complete && 'complete'}`}>{item}</p>
+      <p className={`content ${complete && 'complete'}`}>{name}</p>
     </li>
   );
 };
