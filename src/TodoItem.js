@@ -12,6 +12,10 @@ const TodoItem = ({id, name, complete, completeItem}) => {
         {complete && <i className="fas fa-check"></i>}
       </button>
       <p className={`content ${complete && 'complete'}`}>{name}</p>
+
+      <button className="remove-item">
+        <i className="fas fa-trash-alt fa-2x"></i>
+      </button>
     </li>
   );
 };

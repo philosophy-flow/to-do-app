@@ -1,5 +1,6 @@
 .TodoItem {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
   background-color: white;
@@ -26,6 +27,27 @@
 
 
 /* BUTTON */
+.remove-item {
+  opacity: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: hsl(234, 11%, 52%);
+}
+
+.TodoItem:hover .remove-item {
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+/* always visible on mobile */
+@media only screen and (max-width: 600px) {
+  .remove-item {opacity: 1;}
+}
+
+
+/* BUTTON */
 .cross-item {
   width: 25px;
   height: 25px;
@@ -47,4 +69,5 @@
 @media only screen and (min-width: 500px) {
   .cross-item:hover {border: 2px solid green;}
   .cross-item.active:hover {border: none;}
+  .remove-item:hover{color: black;}
 }
