@@ -35,7 +35,7 @@ function App() {
     setListType(listName)
   }
 
-  const renderedList = (type) => {
+  function renderedList (type) {
     switch (type) {
       case 'all':
         return (todoList.map(item =>
@@ -58,6 +58,12 @@ function App() {
     }
   }
 
+  function clearAllCompleted() {
+    setTodoList(todoList =>
+      todoList.filter(item => !item.complete)
+    );
+  }
+
 
   return (
     <div className="App">
@@ -72,11 +78,12 @@ function App() {
           <ul className="TodoList">
             {renderedList(listType)}
           </ul>
-
           <ControlPanel
             itemsLeft={todoList.filter(item => item.complete === false).length}
             listType={listType}
             handleListChange={handleListChange}
+            clearAllCompleted={clearAllCompleted}
+            listVisibility={renderedList(listType).length > 0}
           />
         </div>
 

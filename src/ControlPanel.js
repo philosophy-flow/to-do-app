@@ -1,9 +1,10 @@
 import './assets/ControlPanel.css'
 import React from 'react';
 
-const ControlPanel = ({itemsLeft, listType, handleListChange}) => {
+const ControlPanel = ({itemsLeft, listType, handleListChange, clearAllCompleted, listVisibility}) => {
+  console.log(listVisibility);
   return (
-    <div className="ControlPanel">
+    <div className={`ControlPanel ${!listVisibility && 'no-list'}`}>
       <p className="items-left">{itemsLeft} items left</p>
       <div className="type-selector-container">
         <button
@@ -25,7 +26,12 @@ const ControlPanel = ({itemsLeft, listType, handleListChange}) => {
           Completed
         </button>
       </div>
-      <button className="control-btn">Clear Completed</button>
+      <button
+        className="control-btn"
+        onClick={clearAllCompleted}
+      >
+        Clear Completed
+      </button>
     </div>
   );
 };

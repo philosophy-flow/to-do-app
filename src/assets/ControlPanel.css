@@ -12,6 +12,10 @@
   border-bottom-right-radius: 5px;
 }
 
+.ControlPanel.no-list {
+  border-radius: 5px;
+}
+
 .control-btn {
   background-color: white;
   border: none;
