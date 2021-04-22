@@ -7,11 +7,6 @@ import TodoItem from './TodoItem';
 import ControlPanel from './ControlPanel';
 
 function App() {
-  // const [todoList, setTodoList] = useState([
-  //   {id: Math.random() * 1000, name: 'item1', complete: false},
-  //   {id: Math.random() * 1000, name: 'item2', complete: false}
-  // ]);
-
   const [todoList, setTodoList] = useState(
     JSON.parse(localStorage.getItem('list')) || []
   );
