@@ -6,6 +6,7 @@
   align-items: center;
   padding: 20px;
   background-color: white;
+  transition: .3s;
 
 
   border-bottom-left-radius: 5px;
@@ -17,12 +18,13 @@
 }
 
 .control-btn {
-  background-color: white;
+  background-color: transparent;
   border: none;
   outline: none;
   font-family: inherit;
   color: hsl(234, 11%, 52%);
   padding: 0 5px;
+  transition: .3s;
 }
 
 .control-btn.active {
@@ -36,7 +38,22 @@
     cursor: pointer;
   }
 
+
+  .ControlPanel.dark > .control-btn:hover {
+    color: hsl(234, 39%, 85%);
+    cursor: pointer;
+  }
+
+  .type-selector-container.dark > .control-btn:hover {
+    color: hsl(234, 39%, 85%);
+  }
+
   .control-btn.active:hover {
+    cursor: default;
+    color: hsl(220, 98%, 61%);
+  }
+
+  .type-selector-container.dark > .control-btn.active:hover {
     cursor: default;
     color: hsl(220, 98%, 61%);
   }
@@ -54,7 +71,7 @@
     top: 75px;
     width: 100%;
     margin-left: -20px;
-    background-color: white;
+    background-color: transparent;
     text-align: center;
     padding: 20px;
 
@@ -62,4 +79,23 @@
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   }
 
+  .type-selector-container {
+    transition: .1s;
+  }
+
+  .ControlPanel.dark > .type-selector-container {
+    background-color: hsl(237, 14%, 26%);
+    transition: .3s;
+  }
 }
+
+
+/* DARK THEME */
+.ControlPanel.dark {
+  background-color: hsl(237, 14%, 26%);
+  transition: .3s;
+}
+
+/* .ControlPanel.dark > .type-selector-container {
+  transition: .3s;
+} */

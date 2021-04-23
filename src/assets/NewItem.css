@@ -8,6 +8,7 @@
 
   margin-bottom: 1rem;
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
 }
 
 .new-todo {
@@ -17,6 +18,7 @@
   font-family: inherit;
   font-size: 1rem;
   background-color: transparent;
+  transition: 0.3s;
 }
 
 .placeholder {
@@ -56,8 +58,10 @@
 /* DARK THEME STYLES */
 .NewItem.dark {
   background-color: hsl(237, 14%, 26%);
+  transition: 0.3s;
 }
 
 .NewItem.dark > .new-todo {
   color: hsl(234, 39%, 85%);
+  transition: 0.3s;
 }

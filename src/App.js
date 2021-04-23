@@ -68,19 +68,19 @@ function App() {
     switch (type) {
       case 'all':
         return (todoList.map(item =>
-          <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
+          <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem} lightTheme={lightTheme}/>
         ));
 
         case 'active':
           const activeItems = todoList.filter(item => !item.complete)
           return (activeItems.map(item =>
-            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
+            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem} lightTheme={lightTheme}/>
           ));
 
         case 'complete':
           const completedItems = todoList.filter(item => item.complete)
           return (completedItems.map(item =>
-            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem}/>
+            <TodoItem key={item.id} {...item} completeItem={completeItem} deleteItem={deleteItem} lightTheme={lightTheme}/>
           ));
       default:
         break;
@@ -90,8 +90,8 @@ function App() {
 
 
   return (
-    <div className={`App ${!lightTheme && 'dark'}`}>
-      <div className={`banner ${!lightTheme && 'dark'}`}></div>
+    <div className={`App ${!lightTheme ? 'dark' : ''}`}>
+      <div className={`banner ${!lightTheme ? 'dark' : ''}`}></div>
       <main className="main-container">
         <h1 className="title">TODO</h1>
         <span className="icon">
@@ -118,6 +118,7 @@ function App() {
             handleListChange={handleListChange}
             clearAllCompleted={clearAllCompleted}
             listVisibility={renderedList(listType).length > 0}
+            lightTheme={lightTheme}
           />
         </div>
 

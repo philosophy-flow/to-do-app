@@ -6,6 +6,7 @@
   background-color: white;
   border-bottom: 1px solid hsl(236, 33%, 92%);
   word-wrap: break-word;
+  transition: .3s;
 }
 
 .TodoItem:first-child {
@@ -18,11 +19,13 @@
   color: hsl(235, 19%, 35%);
   word-wrap: break-word;
   width: 80%;
+  transition: .3s;
 }
 
 .content.complete {
   text-decoration: line-through;
   color: hsl(234, 39%, 85%);
+  transition: .3s;
 }
 
 
@@ -70,4 +73,22 @@
   .cross-item:hover {border: 2px solid green;}
   .cross-item.active:hover {border: none;}
   .remove-item:hover{color: black;}
+}
+
+
+/* DARK THEME */
+.TodoItem.dark {
+  background-color: hsl(237, 14%, 26%);
+  transition: .3s;
+  border-bottom: 1px solid hsl(234, 39%, 85%);
+}
+
+.TodoItem.dark > .content {
+  color: hsl(234, 39%, 85%);
+  transition: .3s;
+}
+
+.TodoItem.dark > .content.complete {
+  color: hsl(234, 11%, 52%);
+  transition: .3s;
 }

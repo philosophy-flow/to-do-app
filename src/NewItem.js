@@ -18,7 +18,7 @@ const NewItem = ({handleNewItem, lightTheme}) => {
 
   return (
     <form
-      className={`NewItem ${!lightTheme && 'dark'}`}
+      className={`NewItem ${!lightTheme ? 'dark' : ''}`}
       onSubmit={handleSubmit}
     >
       <button

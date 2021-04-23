@@ -1,9 +1,9 @@
 import './assets/TodoItem.css';
 import React from 'react';
 
-const TodoItem = ({id, name, complete, completeItem, deleteItem}) => {
+const TodoItem = ({id, name, complete, completeItem, deleteItem, lightTheme}) => {
   return (
-    <li className="TodoItem">
+    <li className={`TodoItem ${!lightTheme ? 'dark' : ''}`}>
       <button
         type="button"
         className={`cross-item ${complete && 'active'}`}

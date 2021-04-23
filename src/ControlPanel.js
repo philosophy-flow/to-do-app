@@ -1,12 +1,12 @@
 import './assets/ControlPanel.css'
 import React from 'react';
 
-const ControlPanel = ({itemsLeft, listType, handleListChange, clearAllCompleted, listVisibility}) => {
+const ControlPanel = ({itemsLeft, listType, handleListChange, clearAllCompleted, listVisibility, lightTheme}) => {
 
   return (
-    <div className={`ControlPanel ${!listVisibility && 'no-list'}`}>
+    <div className={`ControlPanel ${!listVisibility && 'no-list'} ${!lightTheme ? 'dark' : ''}`}>
       <p className="items-left">{itemsLeft} items left</p>
-      <div className="type-selector-container">
+      <div className={`type-selector-container ${!lightTheme ? 'dark' : ''}`}>
         <button
           className={`control-btn ${listType === 'all' ? 'active' : ''}`}
           onClick={() => handleListChange('all')}
