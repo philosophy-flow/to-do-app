@@ -26,9 +26,8 @@
 
   /* move main container over banner neg. margin to remove white space at btm */
   position: relative;
-  top: -210px;
-  margin-bottom: -200px;
-
+  margin-top: -210px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
