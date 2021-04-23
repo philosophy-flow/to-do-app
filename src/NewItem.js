@@ -1,7 +1,7 @@
 import './assets/NewItem.css';
 import React, {useState} from 'react';
 
-const NewItem = ({handleNewItem}) => {
+const NewItem = ({handleNewItem, lightTheme}) => {
   const [inputVal, setInputVal] = useState('');
 
   function handleClearInput() {
@@ -17,7 +17,10 @@ const NewItem = ({handleNewItem}) => {
   }
 
   return (
-    <form className="NewItem" onSubmit={handleSubmit}>
+    <form
+      className={`NewItem ${!lightTheme && 'dark'}`}
+      onSubmit={handleSubmit}
+    >
       <button
         type="button"
         className={`clear-input ${inputVal && 'active'}`}
@@ -31,6 +34,7 @@ const NewItem = ({handleNewItem}) => {
         onChange={e => setInputVal(e.target.value)}
         value={inputVal}
       />
+      <div className="placeholder"></div>
     </form>
   );
 };

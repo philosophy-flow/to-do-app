@@ -1,5 +1,6 @@
 .NewItem {
   display: flex;
+  justify-content: space-around;
 
   background-color: white;
   padding: 20px;
@@ -15,15 +16,23 @@
   border: none;
   font-family: inherit;
   font-size: 1rem;
+  background-color: transparent;
 }
+
+.placeholder {
+  width: 23.33px;
+  height: 10px;
+}
+
 
 /* BUTTON */
 .clear-input {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 20px;
     background-color: #fff;
+    background-color: transparent;
     border: 1px solid hsl(234, 39%, 85%);
     outline: none;
     cursor: default;
@@ -40,4 +49,15 @@
   color: #fff;
   transition: background-color 0.5s;
   transition: color 0.3s;
+}
+
+
+
+/* DARK THEME STYLES */
+.NewItem.dark {
+  background-color: hsl(237, 14%, 26%);
+}
+
+.NewItem.dark > .new-todo {
+  color: hsl(234, 39%, 85%);
 }

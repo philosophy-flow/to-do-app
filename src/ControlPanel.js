@@ -2,7 +2,7 @@ import './assets/ControlPanel.css'
 import React from 'react';
 
 const ControlPanel = ({itemsLeft, listType, handleListChange, clearAllCompleted, listVisibility}) => {
-  console.log(listVisibility);
+
   return (
     <div className={`ControlPanel ${!listVisibility && 'no-list'}`}>
       <p className="items-left">{itemsLeft} items left</p>

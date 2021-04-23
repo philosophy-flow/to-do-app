@@ -1,5 +1,6 @@
 import './assets/App.css';
 import moon from './assets/images/icon-moon.svg';
+import sun from './assets/images/icon-sun.svg';
 
 import React, {useState, useEffect} from 'react';
 import NewItem from './NewItem';
@@ -7,6 +8,8 @@ import TodoItem from './TodoItem';
 import ControlPanel from './ControlPanel';
 
 function App() {
+  //handles color theme
+  const [lightTheme, setLightTheme] = useState(true);
 
   // initial list pulled from localStorage or set to empty arr
   const [todoList, setTodoList] = useState(
@@ -87,17 +90,23 @@ function App() {
 
 
   return (
-    <div className="App">
-      <div className="banner"></div>
+    <div className={`App ${!lightTheme && 'dark'}`}>
+      <div className={`banner ${!lightTheme && 'dark'}`}></div>
       <main className="main-container">
         <h1 className="title">TODO</h1>
         <span className="icon">
-          <button type="button" className="theme-btn">
-            <img src={moon} alt="moon"/>
+          <button
+            type="button"
+            className="theme-btn"
+            onClick={() => setLightTheme(!lightTheme)}>
+            {
+              lightTheme ?
+                <img src={moon} alt="moon"/> : <img src={sun} alt="moon"/>
+            }
           </button>
         </span>
 
-        <NewItem handleNewItem={handleNewItem} />
+        <NewItem handleNewItem={handleNewItem} lightTheme={lightTheme} />
 
         <div className="list-container">
           <ul className="TodoList">
