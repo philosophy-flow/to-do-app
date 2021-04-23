@@ -7,24 +7,28 @@ import TodoItem from './TodoItem';
 import ControlPanel from './ControlPanel';
 
 function App() {
+
+  // initial list pulled from localStorage or set to empty arr
   const [todoList, setTodoList] = useState(
     JSON.parse(localStorage.getItem('list')) || []
   );
 
+  // listType controls what tasks are displayed (all, active, completed)
   const [listType, setListType] = useState('all');
 
+  // updates localStorage every time the todo list is updated
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(todoList));
   }, [todoList]);
 
 
 
+  // adds item object to todo list
   function handleNewItem(item) {
     setTodoList(todoList => [...todoList, {id: Math.random() * 1000, name: item, complete: false}]);
-
-    localStorage.setItem('list', JSON.stringify(todoList));
   }
 
+  // handles when an item is marked as complete/incomplete
   function completeItem(id) {
     setTodoList(todoList =>
       todoList.map(item => {
@@ -37,17 +41,26 @@ function App() {
     );
   }
 
+  // removes item from todo list
   function deleteItem(id) {
     setTodoList(todoList =>
       todoList.filter(item => item.id !== id));
   }
 
-
-
+  // handles list change from control panel component
   function handleListChange(listName) {
     setListType(listName)
   }
 
+  // removes all completed items from control panel component
+  function clearAllCompleted() {
+    setTodoList(todoList =>
+      todoList.filter(item => !item.complete)
+    );
+  }
+
+
+  // filters todo list depending on selected list type
   function renderedList (type) {
     switch (type) {
       case 'all':
@@ -71,11 +84,6 @@ function App() {
     }
   }
 
-  function clearAllCompleted() {
-    setTodoList(todoList =>
-      todoList.filter(item => !item.complete)
-    );
-  }
 
 
   return (
@@ -83,7 +91,11 @@ function App() {
       <div className="banner"></div>
       <main className="main-container">
         <h1 className="title">TODO</h1>
-        <span className="icon"><img src={moon} alt="moon"/></span>
+        <span className="icon">
+          <button type="button" className="theme-btn">
+            <img src={moon} alt="moon"/>
+          </button>
+        </span>
 
         <NewItem handleNewItem={handleNewItem} />
 
