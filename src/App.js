@@ -9,7 +9,10 @@ import ControlPanel from './ControlPanel';
 
 function App() {
   //handles color theme
-  const [lightTheme, setLightTheme] = useState(true);
+  const [lightTheme, setLightTheme] = useState(
+    JSON.parse(localStorage.getItem('theme')) !== null ?
+    JSON.parse(localStorage.getItem('theme')) : true
+  );
 
   // initial list pulled from localStorage or set to empty arr
   const [todoList, setTodoList] = useState(
@@ -22,9 +25,15 @@ function App() {
   // updates localStorage every time the todo list is updated
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(todoList));
-  }, [todoList]);
+    localStorage.setItem('theme', JSON.stringify(lightTheme));
+  }, [todoList, lightTheme]);
 
 
+
+  // handles setting theme & stores in localStorage
+  function handleThemeChange() {
+    setLightTheme(!lightTheme);
+  }
 
   // adds item object to todo list
   function handleNewItem(item) {
@@ -98,7 +107,7 @@ function App() {
           <button
             type="button"
             className="theme-btn"
-            onClick={() => setLightTheme(!lightTheme)}>
+            onClick={handleThemeChange}>
             {
               lightTheme ?
                 <img src={moon} alt="moon"/> : <img src={sun} alt="moon"/>
